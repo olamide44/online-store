@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Add Order</h1>
+    <form action="{{ url_for('main.add_order_route') }}" method="post">
+        <label for="user_id">User ID:</label>
+        <input type="text" id="user_id" name="user_id" required>
+        <label for="total_amount">Total Amount:</label>
+        <input type="text" id="total_amount" name="total_amount" required>
+        <label for="date_of_order">Date of Order:</label>
+        <input type="text" id="date_of_order" name="date_of_order" required>
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" required>
+        <button type="submit">Add Order</button>
+    </form>
+    <a href="{{ url_for('main.orders') }}">Back to Orders</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Order Item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Update Order Item</h1>
+    <form action="{{ url_for('main.update_order_item_route', order_item_id=order_item.id) }}" method="post">
+        <label for="order_id">Order ID:</label>
+        <input type="text" id="order_id" name="order_id" value="{{ order_item.order_id }}" required>
+        <label for="product_id">Product ID:</label>
+        <input type="text" id="product_id" name="product_id" value="{{ order_item.product_id }}" required>
+        <label for="quantity">Quantity:</label>
+        <input type="text" id="quantity" name="quantity" value="{{ order_item.quantity }}" required>
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" value="{{ order_item.price }}" required>
+        <button type="submit">Update Order Item</button>
+    </form>
+    <a href="{{ url_for('main.order_items') }}">Back to Order Items</a>
+</body>
+</html>

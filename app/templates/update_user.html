@@ -1,0 +1,44 @@
+<!-- templates/update_user.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Update User</h1>
+    <form action="{{ url_for('main.update_user_route', user_id=user['id']) }}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ user['name'] }}" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ user['email'] }}" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="{{ user['password'] }}" required>
+        
+        <label for="address_line1">Address Line 1:</label>
+        <input type="text" id="address_line1" name="address_line1" value="{{ user['address_line1'] }}" required>
+        
+        <label for="address_line2">Address Line 2:</label>
+        <input type="text" id="address_line2" name="address_line2" value="{{ user['address_line2'] }}" required>
+        
+        <label for="town">Town:</label>
+        <input type="text" id="town" name="town" value="{{ user['town'] }}" required>
+        
+        <label for="county">County:</label>
+        <input type="text" id="county" name="county" value="{{ user['county'] }}" required>
+        
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" value="{{ user['country'] }}" required>
+        
+        <label for="eircode">Eircode:</label>
+        <input type="text" id="eircode" name="eircode" value="{{ user['eircode'] }}" required>
+        
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

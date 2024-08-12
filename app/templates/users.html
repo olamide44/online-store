@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Users</h1>
+    <nav>
+        <a href="{{ url_for('main.index') }}">Home</a>
+        <a href="{{ url_for('main.products') }}">Products</a>
+        <a href="{{ url_for('main.orders') }}">Orders</a>
+        <a href="{{ url_for('main.order_items') }}">Order Items</a>
+    </nav>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address Line 1</th>
+                <th>Address Line 2</th>
+                <th>Town</th>
+                <th>County</th>
+                <th>Country</th>
+                <th>Eircode</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.address_line1 }}</td>
+                <td>{{ user.address_line2 }}</td>
+                <td>{{ user.town }}</td>
+                <td>{{ user.county }}</td>
+                <td>{{ user.country }}</td>
+                <td>{{ user.eircode }}</td>
+                <td>
+                    <a href="{{ url_for('main.update_user_route', user_id=user.id) }}">Update</a>
+                    <form action="{{ url_for('main.delete_user_route', user_id=user.id) }}" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('main.add_user_route') }}">Add New User</a>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
